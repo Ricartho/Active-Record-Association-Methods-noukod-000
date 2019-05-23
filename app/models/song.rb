@@ -8,6 +8,6 @@ class Song < ActiveRecord::Base
 
   def drake_made_this
     # when this method is called it should assign the song's artist to 
-    Artist.find_by(name: "Drake").tap {|el| el.songs << self}
+    Artist.find_or_create_by(name: "Drake").tap {|el| el.songs << self}
   end
 end
